@@ -255,3 +255,9 @@ exec "setxkbmap -option 'grp:alt_shift_toggle'"
 # Move window between monitors
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
+
+
+# Run custom xrandr command to setup 2nd monitor
+
+exec_always ~/.config/i3/screen-layout.sh
+
