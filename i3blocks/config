@@ -1,5 +1,14 @@
 separator_block_width=25
 
+# Package: xkb-switch; sudo add-apt-repository ppa:atareao/atareao 
+[keymap]
+label=⌨
+#command=xkb-switch -W
+# or
+command=bash -c 'xkb-switch;xkb-switch -W'
+interval=persist
+color=#F9E060
+
 [disk-root]
 label=  
 command=~/.config/i3blocks/disk/disk /
