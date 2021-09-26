@@ -1,4 +1,5 @@
 separator_block_width=25
+#markup=pango
 
 # Package: xkb-switch; sudo add-apt-repository ppa:atareao/atareao 
 [keymap]
@@ -41,15 +42,16 @@ color=#F9E060
 #SENSOR_CHIP= coretemp-isa-0000
 
 [volume]
-command=echo "$(if pactl info | grep Sink | grep -q Headset; then echo ; else echo ; fi)  $(~/.config/i3blocks/volume/volume "5%" pulse)"
+label=🔈
+command=echo "$(if pactl info | grep Sink | grep -q Headset; then echo ; else echo ; fi)  $(~/.config/i3blocks/volume/volume "5%" pulse)"
 interval=2
 signal=10
 color=#FFB86C
 
 [nm-vpn]
+label=vpn  
 command=~/.config/i3blocks/nm-vpn/nm-vpn
 #on_color=#F9E060
-label=  
 interval=10
 
 [battery]
@@ -57,18 +59,31 @@ command=~/.config/i3blocks/battery2/battery2
 markup=pango
 interval=15
 
+[wifi]
+label=
+#command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -fe '{status}' '=' 'up' ' {ssid} {ip} ({quality}%)' -fe '{status}' '!=' 'up' ' down'
+command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -fe '{status}' '=' 'up' ' {ip} ({quality}%)' -fe '{status}' '!=' 'up' ' down'
+#command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -f '{ip} {ssid}'
+instance=wlx00156152ae0c
+markup=pango
+interval=5
+
+[ssid]
+label=
+command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -np -f '{ssid}'
+instance=wlx00156152ae0c
+separator=disable
+interval=5
+
+[iface]
+label=
+command=~/.config/i3/i3blocks/i3blocks-modules/modules/iface -f ' {status}' -fe '{status}' = 'absent' ''
+instance=wlx00156152ae0c
+interval=2
+markup=pango
+
 [time]
-label=  
+label=
 command=date '+%a %d %b %R:%S %p'
 interval=1
 color=#5af78e
-
-
-[wifi]
-label=
-#command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -fe '{status}' '=' 'up' ' {ssid} {ip} ({quality}%)' -fe '{status}' '!=' 'up' ' down'
-command=~/.config/i3/i3blocks/i3blocks-modules/modules/wifi -f '{ip} {ssid}'
-instance=wlx00156152ae0c
-interval=5
-color=#b58900
-
