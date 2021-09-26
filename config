@@ -259,8 +259,19 @@ exec "setxkbmap -option 'grp:alt_shift_toggle'"
 bindsym $mod+Shift+greater move container to output right
 bindsym $mod+Shift+less move container to output left
 
+# Global floating window enable / disable
+bindsym $mod+g mode "mode_layout"
+
+mode "mode_layout" {
+	bindsym d [class="^.*"] floating disable
+	bindsym e [class="^.*"] floating enable
+	bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
 
 # Run custom xrandr command to setup 2nd monitor
 
 exec_always ~/.config/i3/screen-layout.sh
+
+
 
