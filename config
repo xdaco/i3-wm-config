@@ -223,8 +223,8 @@ bindsym $mod+n exec "~/.config/i3/rename-workspace.sh"
 
 # Bar appearance
 bar {
-    #font pango:Monospace 8
-    font pango:Inconsolata, Icons 12
+    font pango:Monospace 10
+    #font pango:Inconsolata, Icons 12
     #font pango:Source Code Pro for Powerline 11
     #font pango:DejaVu Sans, Font Awesome 5 Free Solid 10
     status_command i3blocks -c ~/.config/i3/i3blocks/config
